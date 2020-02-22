@@ -15,7 +15,7 @@ const PortfolioContainer = styled.div`
   z-index: 1;
   font-family: 'Open Sans', sans-serif;
   height: 100
-`
+` 
 
 const MainBody = styled.main`
     background-color: rgba(35, 35, 42, 0.8);
