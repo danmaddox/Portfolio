@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from "../components/container";
 import styled from 'styled-components'
 import SiteNav from '../components/sitenav';
 import Form from '../components/form';

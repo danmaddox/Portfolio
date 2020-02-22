@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import Logo from "../components/Logo"
-import { Link } from "gatsby";
 import SiteNav from '../components/sitenav';
 
 const PortfolioContainer = styled.div`
