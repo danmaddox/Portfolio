@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import Logo from "../components/logo"
-import { Link } from "gatsby";
+import { Link } from "gatsby"
 
 const Navbar = styled.nav`
     background-color: rgba(35, 35, 42, 0.8);

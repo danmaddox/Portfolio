@@ -2,10 +2,14 @@
 path: "/blog/the-beginning"
 date: "2020-02-18"
 title: "About Me"
+featuredImage: ../images/blog1.jpg
 tags: ['Dan', 'Maddox', 'Developer']
 ---
 
 # Placeholder
+![blogin1](../images/blogin1.jpg)
+
+This is some content for my first blog post.
 
 <!-- # My Journey -->
 <!-- 

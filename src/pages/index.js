@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import { Container } from "../components/container"
 import '../components/layout.css'
 import styled from 'styled-components'
@@ -59,6 +58,7 @@ const LinkContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
   
 `
 
