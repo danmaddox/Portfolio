@@ -65,8 +65,11 @@ const LinkContainer = styled.div`
 const StyledLink = styled(Link)`
   font-size: 1rem;
   margin: 1rem;
-  margin-right: 5rem;
-  padding: 0.25em 1em;
+  padding: 0.25rem 1rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  // margin-right: 5rem;
+  // padding: 0.25em 1em;
   // border-left: 2px solid white;
   // border-right: 2px solid white;
   border: 2px solid white;

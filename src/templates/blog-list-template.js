@@ -67,6 +67,22 @@ const BlogPostText = styled.div`
     width: inherit;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    padding-right: 25px;
+
+`
+
+const BlogPostTextHeader = styled.div`
+  height: 50%;
+`
+
+const BlogPostTextBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-between;
+    height: 50%;
 `
 
 const BlogTitle = styled.h1`
@@ -74,29 +90,62 @@ const BlogTitle = styled.h1`
   // text-transform: uppercase;
   font-weight: bold;
   font-size: 2rem;
+  margin-bottom: 5px;
 `
 
 const BlogDate = styled.h2`
   font-size: 1rem;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 8px;
 `
 
 const BlogTags = styled.p`
-  font-size: 1rem;
+  font-size: 0.7rem;
+  padding: 0;
+  margin: 0;
 `
 
 const BlogExcerpt = styled.p`
   font-size: 1rem;
+  margin: 0;
 `
 
-const ReadMore = styled.p`
+const ReadMore = styled.div`
   font-size: 1rem;
-  display: flex;
+  align-self: end;
 
+
+`
+
+const StyledLink = styled(Link)`
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(69, 179, 157, 1);
+  font-weight: bold;
+
+  &:hover{
+    color: rgba(46, 134, 193, 1);
+  }
+`
+
+const StyledImg = styled(Img)`
+    border-radius: 15px;
+    margin: 10px;
 `
 
 const BlogPostImage = styled.div`
     width: inherit; 
 
+`
+
+const PaginationContainer = styled.div`
+    margin: 2rem;
 `
 
 export default class BlogList extends React.Component {
@@ -106,8 +155,8 @@ export default class BlogList extends React.Component {
     const totalCount = this.props.data.allMarkdownRemark.totalCount
     const currentPage = pages.currentPage
 
-    const previous = currentPage === 2 ? <Link to={`/blog`}>Previous</Link>  : currentPage !== 1 ? <Link to={`/blog/${currentPage - 1}`}>Previous</Link>  : null;
-    const next = currentPage === 1 && (pages.itemCount < totalCount)  ? <Link to={`/blog/${currentPage + 1}`}>Next</Link>  : (((currentPage - 1) * 6) + pages.totalCount) < totalCount ? <Link to={`/blog/${currentPage + 1}`}>Next</Link> : null
+    const previous = currentPage === 2 ? <StyledLink to={`/blog`}>Previous</StyledLink>  : currentPage !== 1 ? <StyledLink to={`/blog/${currentPage - 1}`}>Previous</StyledLink>  : null;
+    const next = currentPage === 1 && (pages.itemCount < totalCount)  ? <StyledLink to={`/blog/${currentPage + 1}`}>Next</StyledLink>  : (((currentPage - 1) * 6) + pages.totalCount) < totalCount ? <StyledLink to={`/blog/${currentPage + 1}`}>Next</StyledLink> : null
 
     return (
       <>
@@ -121,31 +170,33 @@ export default class BlogList extends React.Component {
           return (
             <BlogPost>
               <BlogPostText>
-                <BlogTitle>
-                  <div key={node.fields.slug}>{title}</div>
-                </BlogTitle>
-                <BlogDate>
-                  <div key={node.frontmatter.date}>{node.frontmatter.date}</div>
-                </BlogDate>
-                  <BlogTags>
-                    {tags.map(tag => (
-                      <>
-                           [{tag}]
-                           {/* get this to work with the links when tag bit fixed, then actual render links in */}
-                      </>
-                     ))}
-                  </BlogTags>
+                <BlogPostTextHeader>
+                  <BlogTitle key={node.fields.slug}>
+                    {title}
+                  </BlogTitle>
+                  <BlogDate key={node.frontmatter.date}>
+                    {node.frontmatter.date}
+                  </BlogDate>
+                    <BlogTags>
+                      {tags.map(tag => (
+
+                        <StyledLink to={`/tags/${tag.toLowerCase()}`}>{` [${tag}] `}</StyledLink>
+                      ))}
+                    </BlogTags>
+                  </BlogPostTextHeader>
                     {/* <div key={node.frontmatter.tags}>{node.frontmatter.tags}</div> */}
                   {/* <div key={node.frontmatter.path}>{node.frontmatter.path}</div> */}
-                  <BlogExcerpt>
-                    <div key={node.excerpt}>{node.excerpt}</div>
+                  <BlogPostTextBody>
+                  <BlogExcerpt key={node.excerpt}>
+                   {node.excerpt}
                   </BlogExcerpt>
                   <ReadMore>
-                    <Link to={node.frontmatter.path}>Read More</Link>
+                    <StyledLink to={node.frontmatter.path}>Read More...</StyledLink>
                   </ReadMore>
+                  </BlogPostTextBody>
               </BlogPostText>
               <BlogPostImage>
-                <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} />
+                <StyledImg fluid={node.frontmatter.featuredImage.childImageSharp.fluid} />
               </BlogPostImage>
             </BlogPost>
             )
@@ -153,8 +204,10 @@ export default class BlogList extends React.Component {
           {/* <div key={pages.currentPage}>{pages.currentPage}</div>
           <div key={pages.itemCount}>{pages.itemCount}</div>
           <div key={totalCount}>{totalCount}</div> */}
-          {previous}
-          {next}
+          <PaginationContainer>
+            {previous}
+            {next}
+          </PaginationContainer>
           {/* Use this to create logic of next and previous buttons */}
           </BlogPostContainer>
           </MainBody>
