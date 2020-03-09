@@ -60,6 +60,16 @@ const BlogPost = styled.div`
   border-radius: 15px;
   justify-content: center;
 
+  @media (max-width: 768px)
+  {
+    width: 95%;
+  }
+
+  @media (max-width: 1100px)
+  {
+    width: 75%;
+  }
+
 
 `
 
@@ -91,6 +101,13 @@ const BlogTitle = styled.h1`
   font-weight: bold;
   font-size: 2rem;
   margin-bottom: 5px;
+
+  @media (max-width: 768px)
+  {
+    font-size: 1rem;
+  }
+
+
 `
 
 const BlogDate = styled.h2`
@@ -98,22 +115,40 @@ const BlogDate = styled.h2`
   padding: 0;
   margin-top: 0;
   margin-bottom: 8px;
+
+  @media (max-width: 768px)
+  {
+    font-size: 0.75rem;
+  }
+  
 `
 
 const BlogTags = styled.p`
   font-size: 0.7rem;
   padding: 0;
   margin: 0;
+  @media (max-width: 768px)
+  {
+    font-size: 0.5rem;
+  }
 `
 
 const BlogExcerpt = styled.p`
   font-size: 1rem;
   margin: 0;
+  @media (max-width: 768px)
+  {
+    font-size: 0.75rem;
+  }
 `
 
 const ReadMore = styled.div`
   font-size: 1rem;
   align-self: end;
+  @media (max-width: 768px)
+  {
+    font-size: 0.75rem;
+  }
 
 
 `
@@ -131,6 +166,11 @@ const StyledLink = styled(Link)`
 
   &:hover{
     color: rgba(46, 134, 193, 1);
+  }
+
+  @media (max-width: 768px)
+  {
+    font-size: 0.75rem;
   }
 `
 

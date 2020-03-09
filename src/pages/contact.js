@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import SiteNav from '../components/sitenav';
 import Form from '../components/form';
 
@@ -13,9 +13,14 @@ const ContactContainer = styled.div`
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   z-index: 1;
   font-family: 'Open Sans', sans-serif;
-  height: 100vh;
+  color: white;
+  font-size: 1rem;
+  min-height: 100vh;
+  min-width: 100vw;
 ` 
-
+const ContactContainerInner = styled.div`
+    padding: 0 3rem 0 3rem;
+`
 
 const MainBody = styled.main`
     background-color: rgba(35, 35, 42, 0.8);
@@ -28,13 +33,18 @@ const MainBody = styled.main`
     border-radius: 15px;
     padding: 15px 0px 15px 0px;
 
-    width: 98%;
+    width: 65%;
     z-index: 1;
     display: flex;
     align-items: center
     justify-content: center;
     flex-direction: column;
     box-shadow: 0px 4px 4px 0px #111;
+
+    @media (max-width: 768px)
+    {
+      width: 95%;
+    }
 
 `
 
@@ -45,8 +55,10 @@ const Contact = () => {
         <ContactContainer>
         <SiteNav></SiteNav> 
         <MainBody>
-            <h1> Contact Me</h1>
-            <Form></Form>
+            <ContactContainerInner>
+                <h1> Contact Me</h1>
+                <Form></Form>
+            </ContactContainerInner>
         </MainBody>
         </ContactContainer>
         </>
