@@ -124,24 +124,27 @@ const BusinessContainer = styled.div`
 
 const Form = () => {
 
-    const [firstName, setFirstName] = useState('');
-    const [secondName, setSecondName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [company, setCompany] = useState('');
-    const [info, setInfo] = useState('');
-    const [honey, setHoney] = useState('');
+    const [values, setValues] = useState({firstName: '', secondName: '', email: '', phone: '', company: '', info: '', honey: ''})
 
+    const handleChange = (e) => {
+        console.log(e.target.name)
+        console.log(e.target.value)
+        setValues({
+            ...values, 
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // alert(`Submitting ${firstName}`)
-        setFirstName('');
-        setSecondName('');
-        setEmail('');
-        setPhone('');
-        setCompany('');
-        setInfo('');
+        submit();
+        setValues({firstName: '', secondName: '', email: '', phone: '', company: '', info: '', honey: ''});
+
+    }
+
+    const submit = () => {
+        console.log('Submit')
+        console.log(values);
     }
 
     
@@ -150,19 +153,19 @@ const Form = () => {
                 <input type="hidden" name="form-name" value="contact" />
                 <p hidden>
                 <label>
-                    Don’t fill this out: <input name="bot-field" value={honey} onChange={e => setHoney(e.target.value)} />
+                    Don’t fill this out: <input name="bot-field" value={values.honey} onChange={handleChange} />
                 </label>
                 </p>
             <NameContainer>
-            <Input type="text" placeholder='First name' value={firstName} onChange={e => setFirstName(e.target.value)} required/>
-            <Input type="text" placeholder='Second name' value={secondName} onChange={e => setSecondName(e.target.value)} required/>
+            <Input type="text" name='firstName' placeholder='First name' value={values.firstName} onChange={handleChange} required/>
+            <Input type="text" name='secondName' placeholder='Second name' value={values.secondName} onChange={handleChange} required/>
             </NameContainer>
             <DetailContainer>
-            <Input type="email" placeholder='Email' value={email} onChange={e => setEmail(e.target.value)} required/>
-            <Input type="tel" placeholder='Phone' value={phone} onChange={e => setPhone(e.target.value)}/>
+            <Input type="email" name='email' placeholder='Email' value={values.email} onChange={handleChange} required/>
+            <Input type="tel" name='phone' placeholder='Phone' value={values.phone} onChange={handleChange}/>
             </DetailContainer>
             <BusinessContainer>
-            <Input type="text" placeholder='Company (optional)' value={company} onChange={e => setCompany(e.target.value)}/>
+            <Input type="text" name='company' placeholder='Company (optional)' value={values.company} onChange={handleChange}/>
             {/* <Select>
                 <option value="" disabled selected hidden>Enquiry Type</option>
                 <option value='1'>Freelance</option>
@@ -172,7 +175,7 @@ const Form = () => {
                 <option value='5'>Other</option>
             </Select> */}
             </BusinessContainer>
-            <TextArea form ="form" name="taname" cols="35" rows='10' wrap="soft" placeholder='Info here...' value={info} onChange={e => setInfo(e.target.value)} required></TextArea>
+            <TextArea form ="form" name="info" cols="35" rows='10' wrap="soft" placeholder='Info here...' value={values.info} onChange={handleChange} required></TextArea>
             <SubmitInput type="submit" value="Submit" />    
         </FormContainer>
 
