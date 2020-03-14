@@ -9,7 +9,9 @@ tags: ['Dan', 'Maddox', 'Developer']
 # Placeholder
 ![blogin1](../images/blogin1.jpg)
 
-This is some content for my first blog post.
+This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. This is some content for my first blog post. 
+
+This is some content for my first blog post. 
 
 <!-- # My Journey -->
 <!-- 

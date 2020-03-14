@@ -158,6 +158,7 @@ const Form = () => {
                 </p>
             <NameContainer>
             <Input type="text" name='firstName' placeholder='First name' value={values.firstName} onChange={handleChange} required/>
+            {console.log(values)}
             <Input type="text" name='secondName' placeholder='Second name' value={values.secondName} onChange={handleChange} required/>
             </NameContainer>
             <DetailContainer>
