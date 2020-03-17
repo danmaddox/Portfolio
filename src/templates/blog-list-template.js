@@ -59,15 +59,18 @@ const BlogPost = styled.div`
   border-radius: 15px;
   justify-content: center;
 
-  @media (max-width: 768px)
-  {
-    width: 95%;
-  }
-
   @media (max-width: 1100px)
   {
     width: 75%;
+    padding: 0.8rem;
   }
+
+  @media (max-width: 768px)
+  {
+    width: 85%;
+  }
+
+
 
 
 `
@@ -83,7 +86,7 @@ const BlogPostText = styled.div`
 `
 
 const BlogPostTextHeader = styled.div`
-  height: 50%;
+
 `
 
 const BlogPostTextBody = styled.div`
@@ -125,11 +128,8 @@ const BlogDate = styled.h2`
 const BlogTags = styled.p`
   font-size: 0.7rem;
   padding: 0;
-  margin: 0;
-  @media (max-width: 768px)
-  {
-    font-size: 0.5rem;
-  }
+
+ 
 `
 
 const BlogExcerpt = styled.p`
@@ -144,6 +144,7 @@ const BlogExcerpt = styled.p`
 const ReadMore = styled.div`
   font-size: 1rem;
   align-self: end;
+  margin-top: 10px;
   @media (max-width: 768px)
   {
     font-size: 0.75rem;
@@ -171,6 +172,13 @@ const StyledLink = styled(Link)`
   {
     font-size: 0.75rem;
   }
+
+  @media (max-width: 425px)
+  {
+    font-size: 0.6rem;
+  }
+
+
 `
 
 const StyledImg = styled(Img)`

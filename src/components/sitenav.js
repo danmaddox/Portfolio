@@ -12,7 +12,7 @@ const Navbar = styled.nav`
     position: absolute;
     box-shadow: 0px 4px 4px 0px #111;    
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     font-size: 1rem;
 `
@@ -31,14 +31,15 @@ const NavLink = styled(Link)`
     width: 100px;
     height: 95%;
     transition: all 280ms linear;
+    margin-right: auto;
     &:hover {
         background: white;
         color: rgba(71,85,94,1);
         transform: scale(1.1);
         border-radius: 5px;
     }
-    &:last-child{
-        margin-right: 125px;
+    &:first-child{
+         justify-self: flex-start;
     }
 `
 
