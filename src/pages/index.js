@@ -12,6 +12,7 @@ const Info = styled.div`
   padding: 0;
   margin: 0;
   transform: translate(0px, -70px);
+  font-size: 1rem;
 `
 
 const LinkContainer = styled.div`
@@ -22,6 +23,7 @@ const LinkContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   padding-bottom: 5rem;
+  transform: translate(0px, -30px);
 `
 
 const ImageContainer = styled.div`
@@ -31,7 +33,9 @@ const ImageContainer = styled.div`
 const StyledLink = styled(Link)`
   font-size: 1rem;
   margin: 0 2rem 0 2rem;
-  padding: 0.25em 1em;
+  padding: 0.25rem 1rem;
+  margin-bottom: 1rem;
+
   // border-left: 2px solid white;
   // border-right: 2px solid white;
   border: 2px solid white;
